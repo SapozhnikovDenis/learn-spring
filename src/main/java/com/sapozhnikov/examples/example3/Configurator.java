@@ -12,7 +12,7 @@ public class Configurator {
         return new Cat();
     }
 
-    @Bean
+    @Bean("one")
     @Autowired
     public People createPeopleWith(Cat cat) {
         return new People(cat);
