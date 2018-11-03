@@ -19,7 +19,7 @@ public class Examples2 {
 
     @Before
     public void init() {
-        context = new AnnotationConfigApplicationContext("com.sapozhnikov.examples");
+        context = new AnnotationConfigApplicationContext("com.sapozhnikov.examples.example2");
     }
 
     @Test
@@ -37,7 +37,7 @@ public class Examples2 {
         assertTrue(animal instanceof Dog);
 
         Dog dogSpringInstance = (Dog) animal;
-        Dog dogHandInstance = (Dog) animal;
+        Dog dogHandInstance = new Dog();
 
         assertEquals(dogSpringInstance.voice(), dogHandInstance.voice());
     }

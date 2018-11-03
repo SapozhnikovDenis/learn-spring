@@ -16,7 +16,7 @@ public class Examples3 {
 
     @Before
     public void init() {
-        context = new AnnotationConfigApplicationContext("com.sapozhnikov.examples");
+        context = new AnnotationConfigApplicationContext("com.sapozhnikov.examples.example3");
     }
 
     @Test
@@ -27,11 +27,15 @@ public class Examples3 {
 
     @Test
     public void getAnimal() {
-        People people = context.getBean(People.class);
+        People onePeople = (People) context.getBean("one");
+        People twoPeople = (People) context.getBean("two");
         Cat cat = context.getBean(Cat.class);
 
-        assertNotNull(people);
+        assertNotNull(onePeople);
+        assertNotNull(twoPeople);
         assertNotNull(cat);
-        assertEquals(people.getCat(), cat);
+        assertEquals(onePeople.getCat(), cat);
+        assertEquals(twoPeople.getCat(), cat);
+        assertEquals(onePeople.getCat(), twoPeople.getCat());
     }
 }
